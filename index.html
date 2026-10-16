@@ -71,10 +71,10 @@ p { margin: 0; }
 .hero h1 { font-size: clamp(52px, 6.4vw, 92px); line-height: .98; letter-spacing: -.01em; }
 .hero p { max-width: 520px; font-size: 19px; color: var(--ink-2); }
 .actions { display: flex; gap: 16px; flex-wrap: wrap; }
-.hero-photo { margin: 0; display: flex; flex-direction: column; gap: 14px; }
-.photo-frame { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: var(--paper-2); }
-/* Recorte: muestra el lado derecho y la parte superior de la foto, sin el texto incrustado */
-.photo-frame img { position: absolute; right: 0; top: -9%; width: 150%; max-width: none; height: auto; }
+.hero-photo { margin: 0; display: flex; flex-direction: column; gap: 14px; width: 100%; max-width: 420px; justify-self: end; }
+.photo-frame { position: relative; aspect-ratio: 9 / 16; overflow: hidden; background: var(--paper-2); }
+/* Foto completa, sin recorte */
+.photo-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .hero-photo figcaption { font-size: 13px; color: var(--muted); }
 
 /* Versículo */
@@ -181,7 +181,7 @@ p { margin: 0; }
   .nav .btn { margin-top: 16px; border-bottom: 1px solid var(--ink); }
   .menu-btn { display: inline-flex; }
   .hero, .t-grid, .res-grid, .subscribe .wrap { grid-template-columns: minmax(0, 1fr); }
-  .hero-photo { max-width: 520px; }
+  .hero-photo { max-width: 420px; justify-self: start; }
   .hero-text { padding-top: 0; }
 }
 @media (max-width: 760px) {
@@ -286,7 +286,7 @@ const VIDEOS = [
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="#inicio">
-      <span class="brand-name">Jesus People - Santiago Jimenez</span>
+      <span class="brand-name">Jesus People</span>
       <span class="brand-sub" data-i18n="brandSub">Misionero · Predicación y discipulado</span>
     </a>
     <nav class="nav" id="nav" aria-label="Principal" data-i18n-aria="navLabel">
@@ -314,7 +314,7 @@ const VIDEOS = [
     <div class="hero-text">
       <div class="eyebrow" data-i18n="heroEyebrow">Colombia · Estados Unidos · Ecuador</div>
       <h1 data-i18n-html="heroTitle">Equipando a la iglesia para <em>predicar</em> el evangelio.</h1>
-      <p data-i18n="heroText">Santiago Jiménez acompaña a pastores y líderes para que cada iglesia local anuncie a Cristo con claridad y fidelidad a la Palabra.</p>
+      <p data-i18n="heroText">Santiago Jiménez acompaña a pastores y líderes para que cada iglesia local anuncie el evangelio de Cristo con demostraciones de poder y del Espíritu.</p>
       <div class="actions">
         <a class="btn" href="#videos" data-i18n="heroBtnVideos">Ver enseñanzas</a>
         <a class="btn ghost" href="#newsletter" data-i18n="heroBtnLetter">Recibir la carta mensual</a>
@@ -482,7 +482,7 @@ const VIDEOS = [
       menuOpen: 'Abrir menú', menuClose: 'Cerrar menú',
       heroEyebrow: 'Colombia · Estados Unidos · Ecuador',
       heroTitle: 'Equipando a la iglesia para <em>predicar</em> el evangelio.',
-      heroText: 'Santiago Jiménez acompaña a pastores y líderes para que cada iglesia local anuncie a Cristo con claridad y fidelidad a la Palabra.',
+      heroText: 'Santiago Jiménez acompaña a pastores y líderes para que cada iglesia local anuncie el evangelio de Cristo con demostraciones de poder y del Espíritu.',
       heroBtnVideos: 'Ver enseñanzas', heroBtnLetter: 'Recibir la carta mensual',
       heroAlt: 'Santiago Jiménez, con la camiseta de Colombia, orando de rodillas',
       heroCaption: 'Santiago en oración por Colombia.',
