@@ -227,57 +227,39 @@ p { margin: 0; }
    ========================================================================== */
 
 const CONTACTO = {
-  correo: '[correo@ministerio.org]',
-  whatsapp: '[+57 000 000 0000]',
-  youtube: 'https://www.youtube.com/',
-  instagram: 'https://www.instagram.com/',
+  correo: '[jesuspeoplego@gmail.com]',
+  youtube: 'https://www.youtube.com/@sant1jl',
+  instagram: 'https://www.instagram.com/jesuspeoplego',
   donar: '#',                 // enlace de donaciones (PayPal, Zelle, etc.)
   formularioNewsletter: ''    // URL de Formspree / Mailchimp. Vacío = sin conectar
 };
 
 const NEWSLETTERS = [
   { mes: 'Octubre 2026',
-    titulo: 'Noticias desde Ecuador y motivos de oración',
-    titulo_en: 'News from Ecuador and prayer requests',
-    resumen: 'La capacitación de pastores en la costa, lo que viene en Colombia y cómo orar por las iglesias este mes.',
-    resumen_en: 'Pastor training on the coast, what is coming up in Colombia, and how to pray for the churches this month.',
-    url: '#' },
-  { mes: 'Septiembre 2026', url: '#' },
-  { mes: 'Agosto 2026', url: '#' },
-  { mes: 'Julio 2026', url: '#' },
-  { mes: 'Junio 2026', url: '#' }
+    titulo: 'Noticias desde Antioquia y motivos de oración',
+    titulo_en: 'News from Antioquia and prayer requests',
+    resumen: 'La capacitación de creyentes en Llanogrande, lo que viene en Colombia y cómo orar por las iglesias este mes.',
+    resumen_en: 'Believers training in Llanogrande, what is coming up in Colombia, and how to pray for the churches this month.',
+    url: '#' }
 ];
 
 const PREDICACIONES = [
   { titulo: 'El poder del evangelio', titulo_en: 'The power of the gospel', pasaje: 'Romanos 1:16-17', pasaje_en: 'Romans 1:16-17', formato: 'PDF · Audio', duracion: '48 min', url: '#' },
-  { titulo: '¿Cómo oirán sin quien les predique?', titulo_en: 'How will they hear without a preacher?', pasaje: 'Romanos 10:14-17', pasaje_en: 'Romans 10:14-17', formato: 'PDF · Audio', duracion: '52 min', url: '#' },
-  { titulo: 'Predicar a Cristo crucificado', titulo_en: 'Preaching Christ crucified', pasaje: '1 Corintios 2:1-5', pasaje_en: '1 Corinthians 2:1-5', formato: 'Audio', duracion: '41 min', url: '#' },
-  { titulo: 'Pastores según el corazón de Dios', titulo_en: 'Shepherds after God’s own heart', pasaje: 'Jeremías 3:15', pasaje_en: 'Jeremiah 3:15', formato: 'PDF', duracion: '—', url: '#' },
-  { titulo: 'Hombres fieles que enseñen a otros', titulo_en: 'Faithful men who will teach others', pasaje: '2 Timoteo 2:1-7', pasaje_en: '2 Timothy 2:1-7', formato: 'PDF · Audio', duracion: '45 min', url: '#' }
 ];
 
 const TESTIMONIOS = [
-  { texto: 'Llegamos cansados y con miedo de abrir la Biblia frente a la congregación. Después de la capacitación, nuestros líderes predican con claridad y con amor por Cristo.',
-    texto_en: 'We arrived tired and afraid to open the Bible in front of the congregation. After the training, our leaders preach with clarity and with love for Christ.',
-    nombre: '[Nombre del pastor]', detalle: 'Iglesia [Nombre] · Medellín, Colombia', detalle_en: '[Name] Church · Medellín, Colombia' },
-  { texto: 'Aprendimos a preparar el sermón desde el texto y no desde nuestras ideas. La iglesia lo notó el primer domingo.',
-    texto_en: 'We learned to build the sermon from the text and not from our own ideas. The church noticed it the very first Sunday.',
-    nombre: '[Nombre]', detalle: 'Líder de jóvenes · Quito, Ecuador', detalle_en: 'Youth leader · Quito, Ecuador' },
-  { texto: 'Santiago nos ayudó a formar un equipo de maestros para la congregación hispana. Hoy enseñan cada semana.',
-    texto_en: 'Santiago helped us train a team of teachers for our Hispanic congregation. Today they teach every week.',
-    nombre: '[Nombre]', detalle: 'Pastor · Houston, Texas', detalle_en: 'Pastor · Houston, Texas' }
-];
+  ];
 
 const VIDEOS = [
-  { titulo: 'Cómo preparar un sermón desde el texto', titulo_en: 'How to prepare a sermon from the text',
-    serie: 'Predicación expositiva · Parte 1', serie_en: 'Expository preaching · Part 1',
-    duracion: '18:42', youtube: '', foto: true },
-  { titulo: 'Tres preguntas antes de predicar un pasaje', titulo_en: 'Three questions before preaching a passage',
-    serie: 'Hermenéutica básica', serie_en: 'Basic hermeneutics',
-    portada: 'Leer la Biblia en su contexto', portada_en: 'Reading the Bible in context',
-    duracion: '24:10', youtube: '' },
+  { titulo: '¿Porque bautizarse en agua?', titulo_en: 'Why to get water baptized?',
+    serie: 'Primeros pasos · Parte 1', serie_en: 'First Steps · Part 1',
+    duracion: '9:23', youtube: 'UtVl-mZAtKI', foto: false },
+  { titulo: 'Siendo llenos del Espíritu Santo', titulo_en: 'Being filled with the Holy Spirit',
+    serie: 'Primeros pasos · Parte 2', serie_en: 'First Steps · Part 2',
+    portada: 'Bautismo en el Espíritu Santo', portada_en: 'Baptism in the Holy Spirit',
+    duracion: '10:10', youtube: '' },
   { titulo: 'Una iglesia que vive y anuncia el evangelio', titulo_en: 'A church that lives and proclaims the gospel',
-    serie: 'Conferencia · Guayaquil', serie_en: 'Conference · Guayaquil',
+    serie: 'Entrenamiento · Antioquia', serie_en: 'Training · Antioquia',
     portada: 'El evangelio en la iglesia local', portada_en: 'The gospel in the local church',
     duracion: '31:05', youtube: '' }
 ];
@@ -287,7 +269,7 @@ const VIDEOS = [
   <div class="wrap">
     <a class="brand" href="#inicio">
       <span class="brand-name">Jesus People - Santiago Jimenez</span>
-      <span class="brand-sub" data-i18n="brandSub">Misionero · Predicación y discipulado</span>
+      <span class="brand-sub" data-i18n="brandSub">Misionero · Evangelismo y discipulado</span>
     </a>
     <nav class="nav" id="nav" aria-label="Principal" data-i18n-aria="navLabel">
       <a href="#mision" data-i18n="navMision">Misión</a>
@@ -346,12 +328,12 @@ const VIDEOS = [
       <div class="country">
         <div class="code">CO</div>
         <div class="name">Colombia</div>
-        <p data-i18n="coText">Base del ministerio. Talleres de predicación expositiva para pastores y líderes en ciudades y zonas rurales.</p>
+        <p data-i18n="coText">Base del ministerio. Talleres de evangelismo para creyentes cristianos en ciudades y zonas rurales.</p>
       </div>
       <div class="country">
         <div class="code">US</div>
         <div class="name" data-i18n="usName">Estados Unidos</div>
-        <p data-i18n="usText">Acompañamiento a iglesias hispanas: formación de predicadores, maestros y equipos de evangelismo.</p>
+        <p data-i18n="usText">Acompañamiento a iglesias: formación y activación de equipos de evangelismo.</p>
       </div>
       <div class="country">
         <div class="code">EC</div>
@@ -361,7 +343,9 @@ const VIDEOS = [
     </div>
   </section>
 
+
   <section id="testimonios" class="testimonials section">
+      
     <div class="wrap">
       <div class="section-head">
         <div>
@@ -375,6 +359,7 @@ const VIDEOS = [
       </div>
     </div>
   </section>
+ 
 
   <section id="recursos" class="wrap section">
     <div class="section-head">
@@ -439,7 +424,7 @@ const VIDEOS = [
       </div>
       <div class="support-item">
         <h3 data-i18n="supInviteTitle">Invita</h3>
-        <p data-i18n="supInviteText">¿Tu iglesia quiere una capacitación en predicación o discipulado? Escríbenos y coordinamos una visita.</p>
+        <p data-i18n="supInviteText">¿Tu iglesia quiere una entrenamiento en evangelismo, sanidad o liberación? Escríbenos y coordinamos una visita.</p>
         <a class="btn ghost" href="#contacto" data-i18n="supInviteBtn">Contactar a Santiago</a>
       </div>
     </div>
@@ -473,16 +458,16 @@ const VIDEOS = [
   /* Textos fijos de la página en los dos idiomas */
   const I18N = {
     es: {
-      pageTitle: 'Jesus People',
+      pageTitle: 'Jesus People - Santiago Jimenez',
       pageDescription: 'Santiago Jiménez, misionero que equipa iglesias para predicar el evangelio en Colombia, Estados Unidos y Ecuador. Testimonios, predicaciones, newsletter mensual y videos.',
-      brandSub: 'Misionero · Predicación y discipulado',
+      brandSub: 'Misionero · Evangelismo y discipulado',
       navLabel: 'Principal',
       navMision: 'Misión', navTestimonios: 'Testimonios', navRecursos: 'Recursos', navVideos: 'Videos', navContacto: 'Contacto',
       navApoyar: 'Apoyar el ministerio',
       menuOpen: 'Abrir menú', menuClose: 'Cerrar menú',
       heroEyebrow: 'Colombia · Estados Unidos · Ecuador',
       heroTitle: 'Equipando a la iglesia para <em>predicar</em> el evangelio.',
-      heroText: 'Santiago Jiménez acompaña a pastores y líderes para que cada iglesia local anuncie el evangelio de Cristo con demostraciones de poder y del Espíritu.',
+      heroText: 'Santiago Jiménez acompaña a pastores y líderes para que cada iglesia local anuncie el evangelio de Jesucristo con demostraciones de poder y del Espíritu.',
       heroBtnVideos: 'Ver enseñanzas', heroBtnLetter: 'Recibir la carta mensual',
       heroAlt: 'Santiago Jiménez, con la camiseta de Colombia, orando de rodillas',
       heroCaption: 'Santiago en oración por Colombia.',
@@ -490,9 +475,9 @@ const VIDEOS = [
       verseRef: '2 Timoteo 2:2',
       verseText: '“Lo que has oído de mí ante muchos testigos, esto encarga a hombres fieles que sean idóneos para enseñar también a otros.”',
       misionTitle: 'Tres países, una misma tarea.',
-      coText: 'Base del ministerio. Talleres de predicación expositiva para pastores y líderes en ciudades y zonas rurales.',
+      coText: 'Base del ministerio. Talleres de evangelismo para creyentes cristianos en ciudades y zonas rurales.',
       usName: 'Estados Unidos',
-      usText: 'Acompañamiento a iglesias hispanas: formación de predicadores, maestros y equipos de evangelismo.',
+      usText: 'Acompañamiento a iglesias: formación y activación de equipos de evangelismo.',
       ecText: 'Capacitaciones con redes de iglesias locales en la costa y la sierra, junto a pastores ecuatorianos.',
       testTitle: 'Lo que Dios está haciendo en las iglesias',
       resTitle: 'Predicaciones y cartas',
@@ -516,7 +501,7 @@ const VIDEOS = [
       supGiveText: 'Tu ofrenda cubre capacitaciones, materiales impresos y viajes a iglesias que no pueden costearlos.',
       supGiveBtn: 'Ofrendar',
       supInviteTitle: 'Invita',
-      supInviteText: '¿Tu iglesia quiere una capacitación en predicación o discipulado? Escríbenos y coordinamos una visita.',
+      supInviteText: '¿Tu iglesia quiere una entrenamiento en evangelismo, sanidad, o liberación? Escríbenos y coordinamos una visita.',
       supInviteBtn: 'Contactar a Santiago',
       footerLabel: 'Pie de página',
       footerMinistry: 'Ministerio',
@@ -525,14 +510,14 @@ const VIDEOS = [
     en: {
       pageTitle: 'Jesus People',
       pageDescription: 'Santiago Jiménez is a missionary equipping churches to preach the gospel in Colombia, the United States and Ecuador. Testimonies, sermons, a monthly newsletter and videos.',
-      brandSub: 'Missionary · Preaching and discipleship',
+      brandSub: 'Missionary · Evangelism and discipleship',
       navLabel: 'Main',
       navMision: 'Mission', navTestimonios: 'Testimonies', navRecursos: 'Resources', navVideos: 'Videos', navContacto: 'Contact',
       navApoyar: 'Support the ministry',
       menuOpen: 'Open menu', menuClose: 'Close menu',
       heroEyebrow: 'Colombia · United States · Ecuador',
       heroTitle: 'Equipping the church to <em>preach</em> the gospel.',
-      heroText: 'Santiago Jiménez walks alongside pastors and leaders so that every local church proclaims Christ with clarity and faithfulness to the Word.',
+      heroText: 'Santiago Jiménez walks alongside pastors and leaders so that every local church proclaims the gospel of Jesus Christ with demonstrations of power and of the Spirit.',
       heroBtnVideos: 'Watch teachings', heroBtnLetter: 'Get the monthly letter',
       heroAlt: 'Santiago Jiménez, wearing a Colombia jersey, kneeling in prayer',
       heroCaption: 'Santiago praying for Colombia.',
@@ -540,9 +525,9 @@ const VIDEOS = [
       verseRef: '2 Timothy 2:2',
       verseText: '“The things which you have heard from me among many witnesses, commit the same things to faithful men, who will be able to teach others also.”',
       misionTitle: 'Three countries, one task.',
-      coText: 'Home base of the ministry. Expository preaching workshops for pastors and leaders in cities and rural areas.',
+      coText: 'Home base of the ministry. Evangelism trainings for christian believers in cities and rural areas.',
       usName: 'United States',
-      usText: 'Coming alongside Hispanic churches: training preachers, teachers and evangelism teams.',
+      usText: 'Coming alongside churches: training and activating evangelism teams.',
       ecText: 'Training with networks of local churches on the coast and in the highlands, together with Ecuadorian pastors.',
       testTitle: 'What God is doing in the churches',
       resTitle: 'Sermons and letters',
@@ -566,7 +551,7 @@ const VIDEOS = [
       supGiveText: 'Your gift covers training events, printed materials and trips to churches that cannot afford them.',
       supGiveBtn: 'Give',
       supInviteTitle: 'Invite',
-      supInviteText: 'Would your church like training in preaching or discipleship? Write to us and we will plan a visit.',
+      supInviteText: 'Would your church like training in evangelism, healing or deliverance? Write to us and we will plan a visit.',
       supInviteBtn: 'Contact Santiago',
       footerLabel: 'Footer',
       footerMinistry: 'Ministry',
@@ -726,7 +711,7 @@ const VIDEOS = [
   $('f-yt').href = CONTACTO.youtube;
   $('f-ig').href = CONTACTO.instagram;
   $('donar-link').href = CONTACTO.donar;
-  $('f-contact').textContent = `${CONTACTO.correo} · WhatsApp ${CONTACTO.whatsapp}`;
+  $('f-contact').textContent = `${CONTACTO.correo}`;
   $('year').textContent = new Date().getFullYear();
 
   // Formulario de newsletter
