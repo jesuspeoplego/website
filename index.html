@@ -138,7 +138,6 @@ p { margin: 0; }
 .v-dur { position: absolute; right: 16px; bottom: 16px; padding: 4px 8px; background: var(--ink); color: var(--paper); font-size: 13px; font-variant-numeric: tabular-nums; }
 .v-meta { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
 .v-title { font-family: var(--serif); font-size: 28px; line-height: 1.15; }
-.video-more { display: flex; justify-content: center; margin-top: 48px; } 
 
 .modal { position: fixed; inset: 0; z-index: 50; background: rgba(0,0,0,.88); display: flex; align-items: center; justify-content: center; padding: 24px; }
 .modal-inner { width: min(1100px, 100%); display: flex; flex-direction: column; gap: 12px; }
@@ -386,9 +385,6 @@ const VIDEOS = [
         <a class="link" id="yt-link" href="#" target="_blank" rel="noopener" data-i18n="videosLink">Ver canal de YouTube</a>
       </div>
       <div class="grid-3" id="video-grid" style="gap: 32px"></div>
-      <div class="video-more">
-        <a class="btn ghost" id="yt-more" href="#" target="_blank" rel="noopener" data-i18n="videosMore">Ver todos los videos</a>
-      </div>
     </div>
   </section>
 
@@ -493,7 +489,6 @@ const VIDEOS = [
       letterArchive: 'Cartas anteriores',
       videosTitle: 'Enseñanzas para nuevos creyentes',
       videosLink: 'Ver canal de YouTube',
-      videosMore: 'Ver todos los videos',
       close: 'Cerrar',
       subTitle: 'Recibe la carta de cada mes',
       subText: 'Noticias del campo, motivos de oración y un recurso para tu iglesia. Una vez al mes, sin spam.',
@@ -544,7 +539,6 @@ const VIDEOS = [
       letterArchive: 'Past letters',
       videosTitle: 'Teachings for new believers',
       videosLink: 'Visit the YouTube channel', 
-      videosMore: 'Watch all videos',
       close: 'Close',
       subTitle: 'Get the monthly letter',
       subText: 'News from the field, prayer requests and a resource for your church. Once a month, no spam.',
@@ -714,7 +708,7 @@ const VIDEOS = [
   });
 
   // Enlaces de contacto
-  $('yt-link').href = CONTACTO.youtube;   $('yt-more').href = CONTACTO.youtube;
+  $('yt-link').href = CONTACTO.youtube;
   $('f-yt').href = CONTACTO.youtube;
   $('f-ig').href = CONTACTO.instagram;
   $('donar-link').href = CONTACTO.donar;
