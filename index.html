@@ -138,6 +138,10 @@ p { margin: 0; }
 .v-dur { position: absolute; right: 16px; bottom: 16px; padding: 4px 8px; background: var(--ink); color: var(--paper); font-size: 13px; font-variant-numeric: tabular-nums; }
 .v-meta { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
 .v-title { font-family: var(--serif); font-size: 28px; line-height: 1.15; }
+.v-item { display: flex; flex-direction: column; gap: 16px; }
+.v-guide { display: inline-flex; align-items: center; gap: 10px; align-self: start; padding: 10px 16px; border: 1px solid var(--ink); color: var(--ink); text-decoration: none; font-size: 15px; font-weight: 500; transition: background .15s, color .15s; }
+.v-guide:hover { background: var(--ink); color: var(--paper); }
+.v-guide svg { width: 18px; height: 18px; }
 
 .modal { position: fixed; inset: 0; z-index: 50; background: rgba(0,0,0,.88); display: flex; align-items: center; justify-content: center; padding: 24px; }
 .modal-inner { width: min(1100px, 100%); display: flex; flex-direction: column; gap: 12px; }
@@ -254,15 +258,15 @@ const TESTIMONIOS = [
 const VIDEOS = [
   { titulo: '¿Porque bautizarse en agua?', titulo_en: 'Why to get water baptized?',
     serie: 'Primeros pasos · Parte 1', serie_en: 'First Steps · Part 1',
-    duracion: '9:23', youtube: 'UtVl-mZAtKI', foto: false, url: 'https://colorful-book-5a1.notion.site/podevp1'},
+    duracion: '9:23', youtube: 'UtVl-mZAtKI', foto: false, guia: 'https://colorful-book-5a1.notion.site/podevp1'},
   { titulo: 'Siendo llenos del Espíritu Santo', titulo_en: 'Being filled with the Holy Spirit',
     serie: 'Primeros pasos · Parte 2', serie_en: 'First Steps · Part 2',
     portada: 'Bautismo en el Espíritu Santo', portada_en: 'Baptism in the Holy Spirit',
-    duracion: '10:10', youtube: '' },
+    duracion: '10:10', youtube: '', guia: ''  },
   { titulo: 'Una iglesia que vive y anuncia el evangelio', titulo_en: 'A church that lives and proclaims the gospel',
     serie: 'Entrenamiento · Antioquia', serie_en: 'Training · Antioquia',
     portada: 'El evangelio en la iglesia local', portada_en: 'The gospel in the local church',
-    duracion: '31:05', youtube: '' }
+    duracion: '31:05', youtube: '', guia: '' }
 ];
 </script>
 
@@ -484,6 +488,7 @@ const VIDEOS = [
       resTitle: 'Predicaciones y cartas',
       colSermon: 'Predicación', colFormat: 'Formato', colLength: 'Duración',
       download: 'Descargar',
+      videoGuide: 'Descarga la guía',
       letterEyebrow: 'Carta mensual',
       letterRead: (m) => `Leer la carta de ${m.toLowerCase()}`,
       letterArchive: 'Cartas anteriores',
@@ -534,6 +539,7 @@ const VIDEOS = [
       resTitle: 'Sermons and letters',
       colSermon: 'Sermon', colFormat: 'Format', colLength: 'Length',
       download: 'Download',
+      videoGuide: 'Download the guide',
       letterEyebrow: 'Monthly letter',
       letterRead: (m) => `Read the ${m} letter`,
       letterArchive: 'Past letters',
@@ -632,6 +638,7 @@ const VIDEOS = [
 
   const canEmbed = location.protocol.startsWith('http');
   function renderVideos() {
+    const t = T();
     $('video-grid').innerHTML = VIDEOS.map((v, i) => {
       let thumb;
       if (v.youtube) {
@@ -643,9 +650,13 @@ const VIDEOS = [
       }
       const inner = `${thumb}<div class="v-meta">${esc(f(v, 'serie'))}</div><div class="v-title">${esc(f(v, 'titulo'))}</div>`;
       const href = v.youtube ? `https://www.youtube.com/watch?v=${esc(v.youtube)}` : CONTACTO.youtube;
-      return v.youtube && canEmbed
+      const card = v.youtube && canEmbed
         ? `<button type="button" class="v-card" data-yt="${esc(v.youtube)}">${inner}</button>`
         : `<a class="v-card" href="${esc(href)}" target="_blank" rel="noopener">${inner}</a>`;
+      const guide = f(v, 'guia')
+        ? `<a class="v-guide" href="${esc(f(v, 'guia'))}" target="_blank" rel="noopener">${DL_ICON}<span>${esc(t.videoGuide)}</span></a>`
+        : '';
+      return `<div class="v-item">${card}${guide}</div>`;
     }).join('');
   }
 
