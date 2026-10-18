@@ -642,7 +642,7 @@ const VIDEOS = [
     $('video-grid').innerHTML = VIDEOS.map((v, i) => {
       let thumb;
       if (v.youtube) {
-        thumb = `<div class="v-thumb"><img src="https://img.youtube.com/vi/${esc(v.youtube)}/hqdefault.jpg" alt="" loading="lazy"><span class="v-play">${PLAY_ICON}</span><span class="v-dur">${esc(v.duracion)}</span></div>`;
+        thumb = `<div class="v-thumb"><img src="https://img.youtube.com/vi/${esc(v.youtube)}/hqdefault.jpg" alt="" loading="lazy"><span class="v-dur">${esc(v.duracion)}</span></div>`;
       } else if (v.foto) {
         thumb = `<div class="v-thumb"><img src="img/santiago.jpg" alt="" loading="lazy"><span class="v-play">${PLAY_ICON}</span><span class="v-dur">${esc(v.duracion)}</span></div>`;
       } else {
