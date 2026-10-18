@@ -142,6 +142,9 @@ p { margin: 0; }
 .v-guide { display: inline-flex; align-items: center; gap: 10px; align-self: start; padding: 10px 16px; border: 1px solid var(--ink); color: var(--ink); text-decoration: none; font-size: 15px; font-weight: 500; transition: background .15s, color .15s; }
 .v-guide:hover { background: var(--ink); color: var(--paper); }
 .v-guide svg { width: 18px; height: 18px; }
+.v-guides { display: flex; flex-direction: column; gap: 10px; }
+.v-guides-label { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.v-guides-row { display: flex; flex-wrap: wrap; gap: 10px; }
 
 .modal { position: fixed; inset: 0; z-index: 50; background: rgba(0,0,0,.88); display: flex; align-items: center; justify-content: center; padding: 24px; }
 .modal-inner { width: min(1100px, 100%); display: flex; flex-direction: column; gap: 12px; }
@@ -258,15 +261,16 @@ const TESTIMONIOS = [
 const VIDEOS = [
   { titulo: '¿Porque bautizarse en agua?', titulo_en: 'Why to get water baptized?',
     serie: 'Primeros pasos · Parte 1', serie_en: 'First Steps · Part 1',
-    duracion: '9:23', youtube: 'UtVl-mZAtKI', foto: false, guia: 'https://colorful-book-5a1.notion.site/bautismo-en-agua'},
+    duracion: '9:23', youtube: 'UtVl-mZAtKI', foto: false, guiaES: 'https://colorful-book-5a1.notion.site/bautismo-en-agua',
+    guiaEN: 'https://www.proclaimjesus.net/water-baptism/project-one-f5w4d-fhsta'},
   { titulo: 'Siendo llenos del Espíritu Santo', titulo_en: 'Being filled with the Holy Spirit',
     serie: 'Primeros pasos · Parte 2', serie_en: 'First Steps · Part 2',
     portada: 'Bautismo en el Espíritu Santo', portada_en: 'Baptism in the Holy Spirit',
-    duracion: '10:10', youtube: '', guia: ''  },
+    duracion: '10:10', youtube: '', guiaES: ''  },
   { titulo: 'Una iglesia que vive y anuncia el evangelio', titulo_en: 'A church that lives and proclaims the gospel',
     serie: 'Entrenamiento · Antioquia', serie_en: 'Training · Antioquia',
     portada: 'El evangelio en la iglesia local', portada_en: 'The gospel in the local church',
-    duracion: '31:05', youtube: '', guia: '' }
+    duracion: '31:05', youtube: '', guiaES: '' }
 ];
 </script>
 
@@ -653,10 +657,13 @@ const VIDEOS = [
       const card = v.youtube && canEmbed
         ? `<button type="button" class="v-card" data-yt="${esc(v.youtube)}">${inner}</button>`
         : `<a class="v-card" href="${esc(href)}" target="_blank" rel="noopener">${inner}</a>`;
-      const guide = f(v, 'guia')
-        ? `<a class="v-guide" href="${esc(f(v, 'guia'))}" target="_blank" rel="noopener">${DL_ICON}<span>${esc(t.videoGuide)}</span></a>`
+      const guideLink = (url, label) => url
+        ? `<a class="v-guide" href="${esc(url)}" target="_blank" rel="noopener">${DL_ICON}<span>${label}</span></a>`
         : '';
-      return `<div class="v-item">${card}${guide}</div>`;
+      const guides = (v.guiaES || v.guiaEN)
+        ? `<div class="v-guides"><span class="v-guides-label">${esc(t.videoGuide)}</span><div class="v-guides-row">${guideLink(v.guiaES, 'Español')}${guideLink(v.guiaEN, 'English')}</div></div>`
+        : '';
+      return `<div class="v-item">${card}${guides}</div>`;
     }).join('');
   }
 
