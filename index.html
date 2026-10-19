@@ -238,7 +238,7 @@ const CONTACTO = {
   youtube: 'https://www.youtube.com/@sant1jl',
   instagram: 'https://www.instagram.com/jesuspeoplego',
   donar: '#',                 // enlace de donaciones (PayPal, Zelle, etc.)
-  formularioNewsletter: ''    // URL de Formspree / Mailchimp. Vacío = sin conectar
+  formularioNewsletter: 'https://assets.mailerlite.com/jsonp/2726061/forms/201792689433216640/subscribe'    // URL de Formspree / Mailchimp. Vacío = sin conectar
 };
 
 const NEWSLETTERS = [
@@ -403,9 +403,11 @@ const VIDEOS = [
         <p data-i18n="subText">Noticias del campo, motivos de oración y un recurso para tu iglesia. Una vez al mes, sin spam.</p>
       </div>
       <form class="sub-form" id="sub-form" method="POST">
+        <input type="hidden" name="ml-submit" value="1">
+        <input type="hidden" name="anticsrf" value="true">
         <label for="email" data-i18n="subLabel">Correo electrónico</label>
         <div class="sub-row">
-          <input id="email" name="email" type="email" placeholder="tu@correo.com" data-i18n-placeholder="subPlaceholder" autocomplete="email" required>
+          <input id="email" name="fields[email]" type="email" placeholder="tu@correo.com" data-i18n-placeholder="subPlaceholder" autocomplete="email" required>
           <button type="submit" data-i18n="subButton">Suscribirme</button>
         </div>
         <div class="sub-msg" id="sub-msg" role="status"></div>
@@ -502,6 +504,8 @@ const VIDEOS = [
       subTitle: 'Recibe la carta de cada mes',
       subText: 'Noticias del campo, motivos de oración y un recurso para tu iglesia. Una vez al mes, sin spam.',
       subLabel: 'Correo electrónico', subPlaceholder: 'tu@correo.com', subButton: 'Suscribirme',
+      subOk: '¡Gracias! Recibimos tu correo.',
+      subError: (mail) => `No pudimos enviarlo. Inténtalo de nuevo o escríbenos a ${mail}.`,
       subNotConnected: (mail) => `El formulario aún no está conectado. Escríbenos a ${mail} para suscribirte.`,
       supEyebrow: 'Apoyar', supTitle: 'Sé parte de la misión',
       supPrayTitle: 'Ora',
@@ -551,6 +555,8 @@ const VIDEOS = [
       videosLink: 'Visit the YouTube channel', 
       close: 'Close',
       subTitle: 'Get the monthly letter',
+      subOk: 'Thank you! We received your email.',
+      subError: (mail) => `We couldn't send it. Try again or email us at ${mail}.`,
       subText: 'News from the field, prayer requests and a resource for your church. Once a month, no spam.',
       subLabel: 'Email', subPlaceholder: 'you@email.com', subButton: 'Subscribe',
       subNotConnected: (mail) => `The form is not connected yet. Email us at ${mail} to subscribe.`,
@@ -735,12 +741,27 @@ const VIDEOS = [
 
   // Formulario de newsletter
   const form = $('sub-form');
-  if (CONTACTO.formularioNewsletter) form.action = CONTACTO.formularioNewsletter;
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const msg = $('sub-msg');
     if (!CONTACTO.formularioNewsletter) {
-      e.preventDefault();
-      $('sub-msg').textContent = T().subNotConnected(CONTACTO.correo);
+      msg.textContent = T().subNotConnected(CONTACTO.correo);
+      return;
     }
+    const btn = form.querySelector('button');
+    btn.disabled = true;
+    try {
+      await fetch(CONTACTO.formularioNewsletter, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: new FormData(form)
+      });
+      form.reset();
+      msg.textContent = T().subOk;
+    } catch (err) {
+      msg.textContent = T().subError(CONTACTO.correo);
+    }
+    btn.disabled = false;
   });
 
   // Idioma inicial: ?lang=en en el enlace > elección guardada > idioma del navegador
